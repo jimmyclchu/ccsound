@@ -34,16 +34,14 @@ jobs:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     
     - name: Create GitHub Release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: softprops/action-gh-release@v1
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
+        tag_name: ${{ github.ref_name }}
+        name: Release ${{ github.ref_name }}
         body: |
           ## Changes
           
-          See the [CHANGELOG](CHANGELOG.md) for details.
+          🎵 Audio notifications for Claude Code events
           
           ## Installation
           
@@ -52,5 +50,13 @@ jobs:
           # or
           npx ccsound
           ```
+          
+          ## What's New
+          - Interactive sound selection with previews
+          - Cross-platform audio support (macOS, Linux, Windows)
+          - Smart duplicate detection and management
+          - Comprehensive diagnostics with `ccsound doctor`
         draft: false
         prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
