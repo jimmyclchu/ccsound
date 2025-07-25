@@ -1,0 +1,45 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay \"/System/Library/Sounds/Glass.aiff\"",
+            "_ccsound": {
+              "version": "1.0.0",
+              "managed": true,
+              "created": "2025-01-01T00:00:00.000Z",
+              "id": "ccsound_test_001"
+            }
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay \"/System/Library/Sounds/Ping.aiff\"",
+            "_ccsound": {
+              "version": "1.0.0",
+              "managed": true,
+              "created": "2025-01-01T00:00:00.000Z",
+              "id": "ccsound_test_002"
+            }
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'non-ccsound hook'",
+            "description": "This hook is not managed by ccsound"
+          }
+        ]
+      }
+    ]
+  }
+}
